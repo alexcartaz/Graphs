@@ -1,8 +1,6 @@
 """
 Simple graph implementation
 """
-from queue import Queue
-from stack import Stack
 
 class Graph:
   """Represent a graph as a dictionary of vertices mapping labels to edges."""
@@ -84,7 +82,7 @@ class Graph:
     visited = set()
     while len(queue) > 0:
       path = queue.pop(0)
-      print("P: ", path)
+      #print("P: ", path)
       v = path[-1]
       if v not in visited:
         if v == target_value:
@@ -94,7 +92,7 @@ class Graph:
           new_path = list(path)
           new_path.append(next_vert)
           queue.append(new_path)
-        print("Q: ", queue)
+        #print("Q: ", queue)
     return None
 
 
@@ -124,29 +122,3 @@ class Graph:
 
     return None
  
-
-graph = Graph()
-graph.add_vertex('1')
-graph.add_vertex('2')
-graph.add_vertex('3')
-graph.add_vertex('4')
-graph.add_vertex('5')
-graph.add_vertex('6')
-graph.add_vertex('7')
-graph.add_directed_edge('5', '3')
-graph.add_directed_edge('6', '3')
-graph.add_directed_edge('7', '1')
-graph.add_directed_edge('4', '7')
-graph.add_directed_edge('1', '2')
-graph.add_directed_edge('7', '6')
-graph.add_directed_edge('2', '4')
-graph.add_directed_edge('3', '5')
-graph.add_directed_edge('2', '3')
-graph.add_directed_edge('4', '6')
-print(graph.vertices)
-#print(graph.bft('1'))
-#print(graph.dft_recurse('1'))
-print('*')
-#print(graph.bfs_path('1','4'))
-#print(graph.dfs_r_path('1','4'))
-print(graph.bfs_path('1','7'))
