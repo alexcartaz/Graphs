@@ -119,8 +119,11 @@ Note that in this sample, Users 3, 4 and 9 are not in User 1's extended social n
 
 1. To create 100 users with an average of 10 friends each, how many times would you need to call `addFriendship()`? Why?
 
+100 users with an average of 10 friends = 1,000 friendships. Since friendships in this case are bidirectional, it means addFriendship would only need to be called 500 times b/c every single friendship counts twice (once for each person involved). Note: when I seed the network with random connections, this function will be called slightly more than 500 times b/c I use a random number generator that will sometimes cause addFriendship to fail due to duplicate or invalid friendships.
+
 2. If you create 1000 users with an average of 5 random friends each, what percentage of other users will be in a particular user's extended social network? What is the average degree of separation between a user and those in his/her extended network?
 
+I don't know the math for this equation but I know the chances are very high that a given user, they will be connected to all other users via their extended network. Each given user has on average 5 friends who have on average 4 chances each to be friends with any of the other 995 users. So a given user will have ~5*4=20 chances to to be connected to others. The only outliers are users with below average friends or isolated/closed social groups.
 
 
 ## 4. Stretch Goal
